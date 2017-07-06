@@ -1,0 +1,23 @@
+%header.mdl-layout__header.mdl-layout__header--scroll
+  %div.mdl-layout__header-row
+    / Title
+    %span.mdl-layout-title=link_to 'RedSocial', root_path, class: 'white-text',style: 'text-decoration: none'
+    / Add spacer, to align navigation to the right
+    .mdl-layout-spacer
+    / Navigation
+    %nav.mdl-navigation.relative
+      - if user_signed_in?
+        #notifications
+        .right-space
+          =link_to '/notifications', remote: true, data: {type: 'script'}, class: 'circle red white-text', id:'notification' do
+            = current_user.unviewed_notification_count
+        = link_to current_user.username, current_user, class: 'white-text right-space'
+        = link_to 'Cerrar sessión', destroy_user_session_path, method: :delete, class: 'white-text'
+
+.mdl-layout__drawer
+  %span.mdl-layout-title RedSocial
+  %nav.mdl-navigation
+    = link_to 'Mis amigos', friendships_path, class: 'mdl-navigation__link'
+    %a.mdl-navigation__link{ href: ""} Link1
+    %a.mdl-navigation__link{ href: ""} Link2
+    = link_to 'Cerrar sessión', destroy_user_session_path, method: :delete, class: 'mdl-navigation__link'

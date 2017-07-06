@@ -1,0 +1,10 @@
+.row.middle-xs
+	.col-xs-2.col-md-1
+		.box
+			= circle_img friendship.user_view.avatar.url(:thumb), 50
+	.col-xs-6.col-md-7.text-left
+		.box
+			= friendship.user_view.username
+	.col-xs-4
+		.box
+			= friendship.status_or_buttons

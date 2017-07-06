@@ -1,0 +1,11 @@
+.top-space
+  .row.center-xs
+    .col-xs-6.col-md-8
+      .box
+        .white.large-padding
+          = render 'posts/form'
+        #posts
+          .data
+            = render @posts
+          #pagination
+            = will_paginate @posts

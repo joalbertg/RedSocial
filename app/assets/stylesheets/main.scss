@@ -1,0 +1,43 @@
+// Place all the styles related to the Main controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body{
+	background-color: #eee;
+}
+
+.main-background{
+	background-image: url(#{asset_path(bg)});
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.cover{
+	background-size: cover;
+	background-position: center;
+}
+
+#notification{
+	width: 1.5em ;
+	height: 1.6em;
+	display: inline-block;
+	text-decoration: none;
+	text-align: center;
+}
+
+#notifications{
+	position: absolute;
+	background-color: white;
+	top: 65px;
+	left: 0px;
+	width: 200px;
+	color: black;
+	max-height: 0px;
+	overflow-y: scroll;
+	transition: all 0.4s;
+
+	&.active{
+		max-height: 300px;
+		padding: 10px 15px;
+	}
+}

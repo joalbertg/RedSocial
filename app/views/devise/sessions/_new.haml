@@ -1,0 +1,25 @@
+= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+  = devise_error_messages!
+
+  .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+    = f.email_field :email, class: 'mdl-textfield__input'
+    = f.label :email, class: 'mdl-textfield__label grey-text'
+
+  .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+    = f.password_field :password, class: 'mdl-textfield__input'
+    = f.label :password, class: 'mdl-textfield__label grey-text'
+
+  .top-space
+    .row.text-left.middle-xs
+      .col-xs-12.col-md-6
+        .box
+          = f.submit 'Iniciar', class: 'mdl-button mdl-js-button mdl-button--raised mdl-button--colored'
+      .col-xs-12.col-md-6
+        .box
+          = link_to 'Crear cuenta', new_user_registration_path, class: 'white-text underline'
+    .row.center-xs.top-space
+      .col-xs-12
+        .box
+          - if devise_mapping.omniauthable?
+            - resource_class.omniauth_providers.each do |provider|
+              = link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider)
